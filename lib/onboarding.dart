@@ -7,67 +7,83 @@ class Onboarding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            const Column(
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          double textSize = constraints.maxWidth * 0.06;
+          double padding = constraints.maxWidth * 0.05;
+          double imageHeight = constraints.maxHeight * 0.4;
+
+          return Padding(
+            padding: EdgeInsets.all(padding),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text(
-                  'Your AI Assistant',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.blue,
+                Column(
+                  children: [
+                    Text(
+                      'Your AI Assistant',
+                      style: TextStyle(
+                        fontSize: textSize,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blue,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(height: padding * 0.5),
+                    Text(
+                      'Using this software, you can ask your questions and receive articles using an artificial intelligence assistant.',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: textSize * 0.6,
+                        color: Colors.black54,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: padding),
+                Expanded(
+                  child: Image.asset(
+                    'assets/onboarding.png',
+                    height: imageHeight,
+                    fit: BoxFit.contain,
                   ),
                 ),
-                SizedBox(
-                  height: 16,
-                ),
-                Text(
-                  'Using this software, you can ask you questions and receive articles using artificial intelligence assistant',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.black54,
+                SizedBox(height: padding),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const MyHomePage()),
+                          (route) => false,
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    padding: EdgeInsets.symmetric(
+                      vertical: padding * 0.8,
+                      horizontal: padding * 1.5,
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        'Continue',
+                        style: TextStyle(fontSize: textSize * 0.6),
+                      ),
+                      SizedBox(width: 8),
+                      Icon(Icons.arrow_forward, size: textSize * 0.7),
+                    ],
                   ),
                 ),
               ],
             ),
-            const SizedBox(
-              height: 32,
-            ),
-            Image.asset('assets/onboarding.png'),
-            const SizedBox(
-              height: 32,
-            ),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const MyHomePage()),
-                      (route) => false);
-                },
-                style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30)),
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 16, horizontal: 32)),
-                child: const Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text('Continue'),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    Icon(Icons.arrow_forward)
-                  ],
-                ))
-          ],
-        ),
+          );
+        },
       ),
     );
   }
