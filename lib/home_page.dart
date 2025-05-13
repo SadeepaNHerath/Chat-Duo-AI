@@ -80,7 +80,7 @@ class _MyHomePageState extends ConsumerState<MyHomePage>
       _scrollToBottom();
 
       final model = GenerativeModel(
-          model: 'gemini-pro', apiKey: dotenv.env['GOOGLE_API_KEY']!);
+          model: 'gemini-2.0-flash', apiKey: dotenv.env['GOOGLE_API_KEY']!);
 
       final content = [Content.text(userMessage)];
       final response = await model.generateContent(content);
