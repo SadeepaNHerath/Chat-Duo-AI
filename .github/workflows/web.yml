@@ -1,14 +1,36 @@
-name: Gh-Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches: [master]
+  workflow_dispatch:
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+
     steps:
-      - uses: actions/checkout@v2 # Only works with v2
-      - uses: subosito/flutter-action@v1
-      - uses: bluefireteam/flutter-gh-pages@v7
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          flutter-version: '3.19.0' # Specify your Flutter version or use 'any'
+      
+      - name: Install dependencies
+        run: flutter pub get
+      
+      - name: Build for web
+        run: flutter build web --release --web-renderer canvaskit --base-href /chatduo_ai/
+        
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build/web
+          branch: gh-pages
+          clean: true
