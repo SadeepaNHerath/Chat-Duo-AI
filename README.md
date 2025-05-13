@@ -109,18 +109,12 @@ ChatDuo AI follows a clean architecture pattern with:
 
 ## Screenshots
 
-<div align="center">
-  <p><i>Screenshots coming soon</i></p>
-</div>
-
-## Roadmap
-
-- [ ] Multi-language support
-- [ ] Voice input/output capabilities
-- [ ] Offline conversation history
-- [ ] Custom AI model selection
-- [ ] Image recognition capabilities
-- [ ] Cloud sync across devices
+![flutter2](https://github.com/user-attachments/assets/170a6ce0-97ae-4f55-9dd7-837bd3d811d2)
+![Flutter1](https://github.com/user-attachments/assets/810b94d8-3cba-4727-b8be-cbe86879aa5e)
+![flutter4](https://github.com/user-attachments/assets/fe1afa65-f36e-415f-8b89-363549d35d44)
+![flutter6](https://github.com/user-attachments/assets/6276dc45-e4cc-4c2c-ae90-0f844dbdafb5)
+![flutter5](https://github.com/user-attachments/assets/a9c3e487-7584-4145-9f79-c08f502de6b9)
+![flutter3](https://github.com/user-attachments/assets/098ed7ac-2eaf-4a2e-9853-ab6c67e3e2d6)
 
 ## Contributing
 
