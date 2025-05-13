@@ -1,5 +1,5 @@
 import 'package:chatduo_ai/onboarding.dart';
-import 'package:chatduo_ai/themeNotifier.dart';
+import 'package:chatduo_ai/theme_notifier.dart';
 import 'package:chatduo_ai/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';

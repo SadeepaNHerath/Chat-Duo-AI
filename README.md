@@ -92,18 +92,6 @@ flutter build macos --release
 flutter build linux --release
 ```
 
-## Project Structure
-
-```
-lib/
-├── main.dart          # Application entry point
-├── myHomePage.dart    # Main chat interface
-├── message.dart       # Message data model
-├── onboarding.dart    # Onboarding screens for new users
-├── themes.dart        # Theme configurations and styles
-└── themeNotifier.dart # Theme state management
-```
-
 ## Architecture
 
 ChatDuo AI follows a clean architecture pattern with:

@@ -1,4 +1,4 @@
-import 'package:chatduo_ai/MyHomePage.dart';
+import 'package:chatduo_ai/home_page.dart';
 import 'package:flutter/material.dart';
 
 class Onboarding extends StatelessWidget {
@@ -56,7 +56,7 @@ class Onboarding extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) => const MyHomePage()),
-                          (route) => false,
+                      (route) => false,
                     );
                   },
                   style: ElevatedButton.styleFrom(
